@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="1141.0" style="-fx-background-color: #F5F5F5;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Car.fxml.HomeController">
+   <top>
+      <GridPane prefHeight="54.0" prefWidth="677.0" style="-fx-background-color: #FF2800;" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="298.0" minWidth="10.0" prefWidth="298.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="257.0" minWidth="10.0" prefWidth="144.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.0" minWidth="10.0" prefWidth="159.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="36.0" prefWidth="404.0" text="TRANG GIỚI THIỆU MẪU XE Ô TÔ" textFill="#1a191b" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="147.0" spacing="10.0" GridPane.columnIndex="3">
+               <children>
+                  <Hyperlink onAction="#onClickReturnLogin" style="-fx-background-color: black; -fx-background-radius: 5px;" styleClass="out" text="Đăng xuất" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font></Hyperlink>
+                  <Hyperlink layoutX="76.0" layoutY="23.0" onAction="#onClickExit" style="-fx-background-color: black; -fx-background-radius: 5px;" styleClass="out" text="Thoát" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                  </Hyperlink>
+               </children>
+            </HBox>
+            <Label fx:id="welcomeMsg" prefHeight="31.0" prefWidth="256.0" text="Xin chào ABC" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="LEFT">
+               <font>
+                  <Font name="Arial Bold Italic" size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+         </children>
+      </GridPane>
+   </top>
+   <center>
+      <TableView fx:id="carsListTV" onMouseClicked="#onClickRow" prefHeight="630.0" prefWidth="670.0" style="-fx-background-color: #e0e0e0;" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="carNameCol" prefWidth="134.0" styleClass="table-row" text="Tên xe" />
+            <TableColumn fx:id="brandCol" prefWidth="134.0" styleClass="table-row" text="Hãng" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="28.0" prefWidth="920.0" style="-fx-background-color: #FF2800;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Phần mềm thuộc bản quyền công ty phân phối ô tô Vinh Huy" textFill="#030303" />
+         </children>
+      </HBox>
+   </bottom>
+   <right>
+      <VBox prefHeight="701.0" prefWidth="446.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="imgLink" prefHeight="181.0" prefWidth="365.0" spacing="5.0">
+               <children>
+                  <Label prefHeight="53.0" prefWidth="345.0" style="-fx-wrap-text: true;" text="Đường dẫn hình ảnh (Chỉ nhận file JPG hoặc PNG):">
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="37.0" prefWidth="345.0" spacing="5.0">
+                     <children>
+                        <TextField fx:id="imgTF" prefHeight="31.0" prefWidth="232.0" />
+                        <Button mnemonicParsing="false" onAction="#fileChooserClick" text="Chọn" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-radius: 10px;">
+               <children>
+                  <ImageView fx:id="imgView" fitHeight="172.0" fitWidth="403.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 50%;">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="testView" fitHeight="172.0" fitWidth="403.0" layoutX="20.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <HBox prefHeight="39.0" prefWidth="200.0">
+               <children>
+                  <Label text="Tên:">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="carNameLB">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="carNameTF" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="204.0" prefHeight="39.0" prefWidth="200.0">
+               <children>
+                  <Label text="Thương hiệu:">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="brandLB">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="brandTF" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="204.0" prefHeight="39.0" prefWidth="200.0">
+               <children>
+                  <Label text="Giá:">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="priceLB">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="priceTF" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="204.0" prefHeight="39.0" prefWidth="200.0">
+               <children>
+                  <Label text="Loại xe:">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="typeLB">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="typeTF" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="204.0" prefHeight="39.0" prefWidth="200.0">
+               <children>
+                  <Label text="Mã lực:">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="powerLB">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="powerTF" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="204.0" prefHeight="87.0" prefWidth="365.0">
+               <children>
+                  <Label maxWidth="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="76.0" text="Chi tiết:">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="detailLB" style="-fx-wrap-text: true;">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="detailTF" prefHeight="31.0" prefWidth="236.0">
+                     <HBox.margin>
+                        <Insets left="8.0" />
+                     </HBox.margin>
+                  </TextArea>
+               </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="tools" alignment="CENTER" prefHeight="47.0" prefWidth="171.0" spacing="10.0">
+               <children>
+                  <Button fx:id="add" mnemonicParsing="false" onAction="#addClick" text="Thêm" />
+                  <Button fx:id="change" mnemonicParsing="false" onAction="#changeInforClick" text="Sửa" />
+                  <Button fx:id="delete" mnemonicParsing="false" onAction="#DeleteClick" text="Xóa" />
+                  <Button fx:id="cancel" mnemonicParsing="false" onAction="#cancelClick" text="Hủy" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" right="10.0" top="10.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+</BorderPane>
